@@ -72,7 +72,7 @@ abstract public class Person{
         {
             i++;
             action = actions.get(i%actions.size());
-            if(i > actions.size() * 2)
+            if(i > actions.size() * 3)
                 return false;
         }
         lastAction = action;

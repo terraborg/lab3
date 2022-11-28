@@ -13,16 +13,17 @@ public class Main {
         Person[] people = new Person[]{new Owl(house), new Pooh(house)};
         while(true)
         {
-            boolean isEnded = true;
+            boolean isEnded = false;
             System.out.println("----------------------------------------------------------------");
             System.out.println();
             for(var person : people)
             {
                 if(person.act())
                 {
-                    isEnded = false;
                     person.checkCondition();
                 }
+                else
+                    isEnded = true;
 
             }
             if(isEnded) {
