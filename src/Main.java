@@ -1,6 +1,7 @@
 import characters.Owl;
 import characters.Person;
 import characters.Pooh;
+import conditions.ConditionChecker;
 import places.House;
 import places.OutDoor;
 import places.Place;
@@ -11,6 +12,7 @@ public class Main {
         Place outdoor = new OutDoor();
         house.setNearPlaces(outdoor);
         Person[] people = new Person[]{new Owl(house), new Pooh(house)};
+        ConditionChecker checker = new ConditionChecker();
         while(true)
         {
             boolean isEnded = false;
@@ -18,19 +20,15 @@ public class Main {
             System.out.println();
             for(var person : people)
             {
-                if(person.act())
-                {
-                    person.checkCondition();
-                }
-                else
+                if(!person.act())
                     isEnded = true;
-
             }
             if(isEnded) {
                 System.out.println("История завершилась");
                 return;
             }
-            System.out.println();
+            for(var person : people)
+                checker.checkCondition(person);
         }
     }
 }

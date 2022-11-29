@@ -2,6 +2,7 @@ package characters;
 
 import actions.Action;
 import conditions.Condition;
+import conditions.ConditionChecker;
 import conditions.Feeling;
 import places.Place;
 
@@ -26,13 +27,6 @@ abstract public class Person{
 
     private final ArrayList<Action> actions;
 
-    public void checkCondition()
-    {
-        Condition[] condition = getCondition();
-        for (Condition value : condition) System.out.println("Персонаж " + name + value.describe());
-        System.out.println();
-    }
-
     public Action getLastAction() {
         return lastAction;
     }
@@ -49,6 +43,10 @@ abstract public class Person{
         this.feeling = feeling;
     }
 
+    protected Feeling getFeeling() {
+        return feeling;
+    }
+
     private Feeling feeling;
 
     public Person(String name, Place place, Feeling feeling) {
@@ -59,9 +57,9 @@ abstract public class Person{
         actions = new ArrayList<>();
     }
 
-    private Condition[] getCondition()
+    public Condition[] getCondition()
     {
-        return new Condition[]{lastAction, feeling};
+        return new Condition[]{lastAction};
     }
 
     public boolean act()

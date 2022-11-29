@@ -3,6 +3,7 @@ package characters;
 import actions.Look;
 import actions.Move;
 import actions.Talk;
+import conditions.Condition;
 import conditions.Feeling;
 import places.Place;
 
@@ -11,7 +12,9 @@ import java.util.ArrayList;
 public class Pooh extends TalkingPerson{
     public Pooh(Place place) {
         super("Пух", place,Feeling.NONE);
-        addAction(new Look(this));
+        Look look = new Look(this);
+        for(int i = 0; i < 4;i++)
+            addAction(look);
         addAction(new Move(this));
     }
 
@@ -27,5 +30,10 @@ public class Pooh extends TalkingPerson{
         replics.add("да, да");
         replics.add("нет, нет, никогда");
         return new Talk(this,true,replics.toArray(new String[replics.size()]));
+    }
+
+    @Override
+    public Condition[] getCondition() {
+        return new Condition[]{getLastAction(),getFeeling()};
     }
 }

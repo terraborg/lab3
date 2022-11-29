@@ -28,7 +28,7 @@ public class Talk implements Action{
         Person target = place.getCharacters().get(i);
         while(target.equals(person)) {
             i++;
-            target = place.getCharacters().get((++i)%place.getCharacters().size());
+            target = place.getCharacters().get(i%place.getCharacters().size());
             if(i > place.getCharacters().size() * 2)
                 return false;
         }
