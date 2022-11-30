@@ -1,9 +1,8 @@
 package things;
 
 import characters.Person;
+import entity.Named;
 
-public interface Sightable{
+public interface Sightable extends Named {
     void impress(Person person);
-
-    String getName();
 }

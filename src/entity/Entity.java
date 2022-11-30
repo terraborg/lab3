@@ -2,11 +2,11 @@ package entity;
 
 import java.util.Objects;
 
-public abstract class Entity {
+public abstract class Entity implements Named {
     protected Entity(String name) {
         this.name = name;
     }
-
+    @Override
     public String getName() {
         return name;
     }

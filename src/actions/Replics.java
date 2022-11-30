@@ -1,7 +1,9 @@
 package actions;
 
 import java.util.Arrays;
-public class Replics {
+import java.util.Objects;
+
+final public class Replics {
     private final String[] replics;
     private final boolean isReplicsHasEnd;
 
@@ -42,6 +44,6 @@ public class Replics {
 
     @Override
     public int hashCode() {
-        return Arrays.hashCode(replics);
+        return Objects.hash(Arrays.hashCode(replics), isReplicsHasEnd);
     }
 }
