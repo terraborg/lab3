@@ -2,7 +2,7 @@ package conditions;
 
 import characters.Person;
 
-public class ConditionChecker {
+final public class ConditionChecker {
 
     public void checkCondition(Person person)
     {

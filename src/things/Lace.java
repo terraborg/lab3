@@ -3,7 +3,7 @@ package things;
 import characters.Person;
 import conditions.Feeling;
 
-public class Lace extends Thing{
+final public class Lace extends Thing{
     public Lace() {
         super("Шнурок");
     }

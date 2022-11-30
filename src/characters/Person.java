@@ -2,27 +2,17 @@ package characters;
 
 import actions.Action;
 import conditions.Condition;
-import conditions.ConditionChecker;
 import conditions.Feeling;
+import entity.Entity;
 import places.Place;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
-abstract public class Person{
-    public String getName() {
-        return name;
-    }
-
-    private final String name;
+abstract public class Person extends Entity {
 
     public void addAction(Action action)
     {
         actions.add(action);
-    }
-
-    public ArrayList<Action> getActions() {
-        return actions;
     }
 
     private final ArrayList<Action> actions;
@@ -50,7 +40,7 @@ abstract public class Person{
     private Feeling feeling;
 
     public Person(String name, Place place, Feeling feeling) {
-        this.name = name;
+        super(name);
         this.place = place;
         place.addCharacter(this);
         this.feeling = feeling;
@@ -79,21 +69,9 @@ abstract public class Person{
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Person person)) return false;
-        return Objects.equals(name+getClass().getName(), person.name + person.getClass().getName());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name);
-    }
-
-    @Override
     public String toString() {
         return getClass().getName() + "{" +
-                "name='" + name + '\'' +
+                "name='" + getName() + '\'' +
                 ", place=" + place.getName() +
                 ", feeling=" + feeling +
                 '}';

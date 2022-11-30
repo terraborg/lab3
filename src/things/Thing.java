@@ -2,43 +2,17 @@ package things;
 
 import characters.Person;
 import conditions.Feeling;
+import entity.Entity;
 
-import java.util.Objects;
-
-abstract public class Thing implements Sightable {
-    private final String name;
+abstract public class Thing extends Entity implements Sightable {
 
     protected Thing(String name) {
-        this.name = name;
+        super(name);
     }
 
     @Override
     public void impress(Person person)
     {
         person.setFeeling(Feeling.NONE);
-    }
-
-    @Override
-    public String getName() {
-        return name;
-    }
-
-    @Override
-    public String toString() {
-        return getClass().getName() + "{" +
-                "name='" + name + '\'' +
-                '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Thing thing)) return false;
-        return Objects.equals(name+getClass().getName(), thing.name + thing.getClass().getName());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name);
     }
 }

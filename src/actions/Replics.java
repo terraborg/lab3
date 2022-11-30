@@ -1,7 +1,6 @@
 package actions;
 
 import java.util.Arrays;
-
 public class Replics {
     private final String[] replics;
     private final boolean isReplicsHasEnd;

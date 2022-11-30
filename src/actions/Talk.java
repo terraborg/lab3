@@ -5,7 +5,7 @@ import places.Place;
 
 import java.util.Objects;
 
-public class Talk implements Action{
+final public class Talk implements Action{
 
     private final Person person;
     private Person lastTarget;

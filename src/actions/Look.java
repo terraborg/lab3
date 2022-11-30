@@ -6,7 +6,7 @@ import things.Sightable;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Look implements Action{
+final public class Look implements Action{
 
     private Sightable sight;
     private final Person person;

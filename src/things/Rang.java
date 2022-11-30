@@ -1,6 +1,6 @@
 package things;
 
-public class Rang extends Thing{
+final public class Rang extends Thing{
     public Rang() {
         super("Звонок");
     }

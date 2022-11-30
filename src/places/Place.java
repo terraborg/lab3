@@ -1,6 +1,7 @@
 package places;
 
 import characters.Person;
+import entity.Entity;
 import things.Sightable;
 import things.Thing;
 
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
-abstract public class Place {
+abstract public class Place extends Entity {
     public ArrayList<Person> getCharacters() {
         return characters;
     }
@@ -19,7 +20,7 @@ abstract public class Place {
         return things;
     }
 
-    private Thing[] things;
+    private final Thing[] things;
 
     public Place[] getNearPlaces() {
         return nearPlaces;
@@ -27,17 +28,11 @@ abstract public class Place {
 
     private Place[] nearPlaces;
 
-    private final String name;
-
     public Place(String name, Thing... things)
     {
-        this.name = name;
+        super(name);
         this.things = things;
         nearPlaces = new Place[0];
-    }
-
-    public String getName() {
-        return name;
     }
 
     public void setNearPlaces(Place... places)
@@ -55,22 +50,11 @@ abstract public class Place {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (!(o instanceof Place place)) return false;
-        return Objects.equals(name+getClass().getName(), place.name + place.getClass().getName());
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(name);
-    }
-
-    @Override
     public String toString() {
         return getClass().getName() + "{" +
+                ", characters=" + Arrays.toString(new ArrayList[]{characters}) +
                 ", things=" + Arrays.toString(things) +
-                ", name='" + name + '\'' +
+                ", name='" + getName() + '\'' +
                 '}';
     }
 }

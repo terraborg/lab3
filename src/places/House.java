@@ -1,6 +1,6 @@
 package places;
 
-public class House extends Place{
+final public class House extends Place{
 
     public House()
     {

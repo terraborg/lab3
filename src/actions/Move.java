@@ -5,7 +5,7 @@ import places.Place;
 
 import java.util.Objects;
 
-public class Move implements Action{
+final public class Move implements Action{
 
     private final Person person;
     private Place lastPlace;
